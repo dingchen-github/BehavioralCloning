@@ -1,19 +1,13 @@
 # **Behavioral Cloning**
 
-run1.mp4: Using Udacity training data (center) and NVIDIA model, autonomous driving on the easy track.
-run2.mp4: Using Udacity training data (center) and NVIDIA model, autonomous driving on the hard track.
-run3.mp4: Using Udacity and my training data (center) and NVIDIA model, autonomous driving on the easy track.
-run4.mp4: Using Udacity and my training data (center) and NVIDIA model, autonomous driving on the hard track.
-run5.mp4: Using Udacity and my training data (center+left+right) and NVIDIA model, autonomous driving on the easy track.
-run6.mp4: Using Udacity and my training data (center+left+right) and NVIDIA model, autonomous driving on the hard track.
-run7.mp4: Using Udacity and my training data (center+left+right+extra curve training) and NVIDIA model, autonomous driving on the hard track.
-
 [//]: # (Image References)
 
 [image1]: ./model.png "model"
 [image2]: ./loss.png "loss"
+[image3]: ./run2.png "run2"
+[image4]: ./run4.png "run4"
+[image5]: ./run6.png "run6"
 
----
 ### Files Submitted & Code Quality
 
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
@@ -101,7 +95,7 @@ For details about how I created the training data, see the next section.
 
 #### 5. Data generator
 
-In order to avoid excessive memory usage, a data generator was deployed, which yields the shuffled training data.
+In order to avoid excessive memory usage, a data generator was deployed, which yields the shuffled training data, as can be seen in the function `def generator(samples, batch_size=32)`.
 
 ---
 
@@ -109,10 +103,26 @@ In order to avoid excessive memory usage, a data generator was deployed, which y
 
 #### 1. First try with Udacity training data and center camera images
 
-I trained the model first with only Udacity training data on the "easy" track and only center camera images. Then I let the car drive autonomously in the simulator. On the "easy" track, the cars drives surprisely well.
+I trained the model first with only Udacity training data on the "easy" track and only center camera images. Then I let the car drive autonomously in the simulator. On the "easy" track, the cars drives surprisely well, as can be seen in [run1.mp4]('./run1.mp4').
 
-<figure class="video_container">
-  <video controls="true" allowfullscreen="true" poster="./run1.png">
-    <source src="./run1.mp4" type="video/mp4">
-  </video>
-</figure>
+However, on the "hard" track, the car "crashed" into a hill on the first curve.
+
+![alt text][image3]
+
+#### 2. Second try with my training data and center camera images
+
+I drove a full lap on the "hard" track and fed center camera images to the model. This time the car drove autonomously for more than 30 seconds before hitting the poles.
+
+![alt text][image4]
+
+#### 3. Third try with center, left and right camera images
+
+My guess is that the car needed side camera images to correct its steering angles, so I fed center, left and right camera images to the model. This time the car drove autonomously for more than 90 seconds before hitting the poles in a sharp curve.
+
+![alt text][image5]
+
+#### 4. Fourth try with extra curve training data
+
+The model needed more training for sharp curves, so I drove the car over several curves and fed the data to the model. This time the car drove autonomously for the whole lap, as can be seen in [video_challenge.mp4]('./video_challenge.mp4').
+
+And of cource, the car drove perfectly well on the "easy" track, as can be seen in [video.mp4]('./video.mp4').
