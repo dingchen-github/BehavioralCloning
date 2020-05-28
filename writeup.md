@@ -103,7 +103,7 @@ In order to avoid excessive memory usage, a data generator was deployed, which y
 
 #### 1. First try with Udacity training data and center camera images
 
-I trained the model first with only Udacity training data on the "easy" track and only center camera images. Then I let the car drive autonomously in the simulator. On the "easy" track, the cars drives surprisely well, as can be seen in [run1.mp4]('./run1.mp4').
+I trained the model first with only Udacity training data on the "easy" track and only center camera images. Then I let the car drive autonomously in the simulator. On the "easy" track, the cars drives surprisely well, as can be seen in [run1.mp4](https://github.com/dingchen-github/BehavioralCloning/blob/master/run1.mp4).
 
 However, on the "hard" track, the car "crashed" into a hill on the first curve.
 
@@ -123,6 +123,6 @@ My guess is that the car needed side camera images to correct its steering angle
 
 #### 4. Fourth try with extra curve training data
 
-The model needed more training for sharp curves, so I drove the car over several curves and fed the data to the model. This time the car drove autonomously for the whole lap, as can be seen in [video_challenge.mp4]('./video_challenge.mp4').
+The model needed more training for sharp curves, so I drove the car over several curves and fed the data to the model. This time the car drove autonomously for the whole lap, as can be seen in [video_challenge.mp4](https://github.com/dingchen-github/BehavioralCloning/blob/master/video_challenge.mp4).
 
-And of cource, the car drove perfectly well on the "easy" track, as can be seen in [video.mp4]('./video.mp4').
+And of cource, the car drove perfectly well on the "easy" track, as can be seen in [video.mp4](https://github.com/dingchen-github/BehavioralCloning/blob/master/video.mp4).
